@@ -36,14 +36,16 @@ export default async function ProductPage({ params }: ParamsPage) {
         <div className="flex flex-col md:flex-row -mx-4">
           <div className="md:flex-1 px-4">
             <div className="h-[460px] rounded-lg bg-gray-300 dark:bg-gray-700 mb-4">
-              <img className="w-full h-full object-cover" src={image.transformedSrc} alt={image.altText} />
+              <picture>
+                <img className="w-full h-full object-cover" src={image.transformedSrc} alt={image.altText} />
+              </picture>
             </div>
             <div className="flex -mx-2 mb-4">
               <div className="w-1/2 px-2">
-              <button className="w-full bg-gray-900 dark:bg-gray-600 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800 dark:hover:bg-gray-700">Add to Cart</button>
+              <button disabled className="w-full bg-gray-900 dark:bg-gray-600 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800 dark:hover:bg-gray-700">Add to Cart</button>
               </div>
               <div className="w-1/2 px-2">
-                <button className="w-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white py-2 px-4 rounded-full font-bold hover:bg-gray-300 dark:hover:bg-gray-600">Add to Wishlist</button>
+                <button disabled className="w-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white py-2 px-4 rounded-full font-bold hover:bg-gray-300 dark:hover:bg-gray-600">Add to Wishlist</button>
               </div>
             </div>
           </div>
@@ -65,20 +67,20 @@ export default async function ProductPage({ params }: ParamsPage) {
             <div className="mb-4">
               <span className="font-bold text-gray-700 dark:text-gray-300">Select Color:</span>
               <div className="flex items-center mt-2">
-                <button className="w-6 h-6 rounded-full bg-gray-800 dark:bg-gray-200 mr-2"></button>
-                <button className="w-6 h-6 rounded-full bg-red-500 dark:bg-red-700 mr-2"></button>
-                <button className="w-6 h-6 rounded-full bg-blue-500 dark:bg-blue-700 mr-2"></button>
-                <button className="w-6 h-6 rounded-full bg-yellow-500 dark:bg-yellow-700 mr-2"></button>
+                <button disabled className="w-6 h-6 rounded-full bg-gray-800 dark:bg-gray-200 mr-2"></button>
+                <button disabled className="w-6 h-6 rounded-full bg-red-500 dark:bg-red-700 mr-2"></button>
+                <button disabled className="w-6 h-6 rounded-full bg-blue-500 dark:bg-blue-700 mr-2"></button>
+                <button disabled className="w-6 h-6 rounded-full bg-yellow-500 dark:bg-yellow-700 mr-2"></button>
               </div>
             </div>
             <div className="mb-4">
               <span className="font-bold text-gray-700 dark:text-gray-300">Select Size:</span>
               <div className="flex items-center mt-2">
-                <button className="bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 dark:hover:bg-gray-600">S</button>
-                <button className="bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 dark:hover:bg-gray-600">M</button>
-                <button className="bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 dark:hover:bg-gray-600">L</button>
-                <button className="bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 dark:hover:bg-gray-600">XL</button>
-                <button className="bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 dark:hover:bg-gray-600">XXL</button>
+                <button disabled className="bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 dark:hover:bg-gray-600">S</button>
+                <button disabled className="bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 dark:hover:bg-gray-600">M</button>
+                <button disabled className="bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 dark:hover:bg-gray-600">L</button>
+                <button disabled className="bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 dark:hover:bg-gray-600">XL</button>
+                <button disabled className="bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 dark:hover:bg-gray-600">XXL</button>
               </div>
             </div>
             <div>
@@ -99,7 +101,9 @@ export default async function ProductPage({ params }: ParamsPage) {
               return (
                 <div key={item.node.title} className="bg-white rounded-lg shadow-lg p-8">
                   <div className="relative overflow-hidden">
-                    <img className="object-cover w-full h-full" src={image.transformedSrc} alt={image.altText} />
+                    <picture>
+                      <img className="object-cover w-full h-full" src={image.transformedSrc} alt={image.altText} />
+                    </picture>
                     <div className="absolute inset-0 bg-black opacity-40"></div>
                     <div className="absolute inset-0 flex items-center justify-center">
                       <Link href={`/products/${item.node.handle}`} className="bg-white text-gray-900 py-2 px-6 rounded-full font-bold hover:bg-gray-300">View Product</Link>
@@ -108,15 +112,12 @@ export default async function ProductPage({ params }: ParamsPage) {
                   <h3 className="text-xl font-bold text-gray-900 mt-4">{item.node.title}</h3>
                   <div className="flex items-center justify-between mt-4">
                     <span className="text-gray-900 font-bold text-lg">{formatPrice(item.node.priceRangeV2.minVariantPrice.amount)}</span>
-                    {/* <CheckoutButton variantId={variantId} /> */}
                   </div>
                 </div>
               )
             }
             )}
-
           </div>
-
         </div>
       </div>
     </div>

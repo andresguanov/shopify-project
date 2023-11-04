@@ -59,6 +59,7 @@ export default function HomePage() {
         </div>
       </div>
       <Suspense fallback={<div>Loading...</div>}>
+        {/* @ts-expect-error Server Component */}
          <ProductList />
       </Suspense>
 

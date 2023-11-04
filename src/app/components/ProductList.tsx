@@ -2,8 +2,6 @@ import { storefront, formatPrice } from '@/utils'
 import type { ShopifyResponse } from '@/app/types'
 import Link from 'next/link'
 
-
-
 // String.raw is a tricky to see sintax highlight in vscode
 const gql = String.raw
 
